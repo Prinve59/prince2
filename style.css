@@ -71,7 +71,6 @@ li a{
     }
 }
 section{
-    width: 100%;
     background-image: url(back.png);
     background-size: cover;
 }
@@ -142,7 +141,7 @@ section{
 }
 .movies{
     position: relative;
-    display: flex;
+    display:flex;
     justify-content: center;
     align-items: center;
     color: aliceblue;
@@ -150,16 +149,33 @@ section{
     background-color:  rgb(4,8,23);
 }
 .poster{
-    display:flex; 
-    height: 30rem;
-    flex-wrap:nowrap;
+    display:flex;
+    width: 100%;
     gap: 25px;
-    padding-left: 25px;
-    padding-right:15vw;
-    overflow-x: scroll;
-    overflow-y: hidden;
+    height: 30rem;
+    &:hover .pc1{
+        animation-play-state: paused;
+    }
+}
+.pc1{
+    display:inline-block;
+    animation: poster 5s infinite linear;
+}
+.pc{
+    display:flex;
+    flex-direction: row;
+    height: 30rem;
+    gap: 25px;
+    background-color: transparent;
     align-items: center;
-    overscroll-behavior-x:auto;
+}
+@keyframes poster {
+    from{
+        transform: translateX(0%);
+    }to{
+        transform: translateX(-100%);
+    }
+
 }
 .card{
     position: relative;
@@ -211,12 +227,12 @@ section{
     transform: scale(1.05) ;
     aspect-ratio: 1.85/3;
     opacity: 1;
-    
+
 }
 .card:hover .info{
     bottom: 0;
     opacity: 1;
-    
+
 }
 .poster:hover .card:not(:hover){
     filter: blur(5px);
